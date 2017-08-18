@@ -153,6 +153,12 @@
         </dependency>
         <!--oauth2 end-->
 
+        <dependency>
+            <groupId>commons-collections</groupId>
+            <artifactId>commons-collections</artifactId>
+            <version>3.2.1</version>
+        </dependency>
+
         <!-- 生成图形验证码 -->
         <dependency>
             <groupId>com.github.penggle</groupId>
