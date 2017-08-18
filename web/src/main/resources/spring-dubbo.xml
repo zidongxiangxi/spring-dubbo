@@ -27,4 +27,8 @@
 
     <!-- 生成远程服务代理，可以像使用本地bean一样使用demoService -->
     <dubbo:reference id="demoService" interface="com.xdchen.common.service.IDemoService" check="false" />
+    <dubbo:reference id="clientService" interface="com.xdchen.common.service.OauthClientService" check="false" />
+    <dubbo:reference id="oauthService" interface="com.xdchen.common.service.OauthService" check="false" />
+    <dubbo:reference id="oauthUserService" interface="com.xdchen.common.service.OauthUserService" check="false" />
+
 </beans>

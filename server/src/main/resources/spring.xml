@@ -2,10 +2,34 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+       xmlns:context="http://www.springframework.org/schema/context"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
        http://www.springframework.org/schema/beans/spring-beans.xsd
        http://code.alibabatech.com/schema/dubbo
-       http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
+       http://code.alibabatech.com/schema/dubbo/dubbo.xsd
+       http://www.springframework.org/schema/context
+       http://www.springframework.org/schema/context/spring-context.xsd">
+    <!-- 扫描注解Bean -->
+    <context:component-scan base-package="com.xdchen">
+        <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
+    </context:component-scan>
+
+    <!-- 配置扫描的service层和dao层 -->
+    <!--<context:component-scan base-package="com.xdchen.server">-->
+        <!--<context:include-filter type="annotation" expression="org.springframework.stereotype.Service" />-->
+        <!--<context:include-filter type="annotation" expression="org.springframework.stereotype.Repository" />-->
+        <!--<context:include-filter type="annotation" expression="org.springframework.stereotype.Component" />-->
+        <!--<context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller" />-->
+    <!--</context:component-scan>-->
+    <bean id="springCacheManager" class="org.springframework.cache.ehcache.EhCacheCacheManager">
+        <property name="cacheManager" ref="ehcacheManager"/>
+    </bean>
+
+    <!--ehcache-->
+    <bean id="ehcacheManager" class="org.springframework.cache.ehcache.EhCacheManagerFactoryBean">
+        <property name="configLocation" value="classpath:ehcache/ehcache.xml"/>
+    </bean>
+
     <!-- 具体的实现bean -->
     <bean id="demoService" class="com.xdchen.server.service.DemoService" />
 
@@ -23,4 +47,9 @@
 
     <!-- 声明需要暴露的服务接口 -->
     <dubbo:service interface="com.xdchen.common.service.IDemoService" ref="demoService" />
+    <dubbo:service interface="com.xdchen.common.service.OauthClientService" ref="oauthClientService" />
+    <dubbo:service interface="com.xdchen.common.service.OauthService" ref="oauthService" />
+    <dubbo:service interface="com.xdchen.common.service.OauthUserService" ref="oauthUserService" />
+
+    <import resource="spring-config-mybatis.xml"/>
 </beans>

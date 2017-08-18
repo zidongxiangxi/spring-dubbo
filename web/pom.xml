@@ -23,6 +23,9 @@
         <support.basedir>${project.parent.parent.basedir}/src/support</support.basedir>
         <site.basedir>${project.parent.parent.basedir}</site.basedir>
         <spring.json>2.6.3</spring.json>
+
+        <shiro.version>1.3.2</shiro.version>
+        <oauth2.version>1.0.2</oauth2.version>
     </properties>
 
     <build>
@@ -103,6 +106,52 @@
             <artifactId>xdchen-common</artifactId>
             <version>${xdchen.common.version}</version>
         </dependency>
+
+        <!-- shiro begin -->
+        <dependency>
+            <groupId>org.apache.shiro</groupId>
+            <artifactId>shiro-core</artifactId>
+            <version>${shiro.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.shiro</groupId>
+            <artifactId>shiro-web</artifactId>
+            <version>${shiro.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.shiro</groupId>
+            <artifactId>shiro-spring</artifactId>
+            <version>${shiro.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.shiro</groupId>
+            <artifactId>shiro-ehcache</artifactId>
+            <version>${shiro.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.shiro</groupId>
+            <artifactId>shiro-quartz</artifactId>
+            <version>${shiro.version}</version>
+        </dependency>
+        <!-- shiro end -->
+
+        <!--oauth2 start-->
+        <dependency>
+            <groupId>org.apache.oltu.oauth2</groupId>
+            <artifactId>org.apache.oltu.oauth2.authzserver</artifactId>
+            <version>${oauth2.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.oltu.oauth2</groupId>
+            <artifactId>org.apache.oltu.oauth2.resourceserver</artifactId>
+            <version>${oauth2.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.oltu.oauth2</groupId>
+            <artifactId>org.apache.oltu.oauth2.client</artifactId>
+            <version>${oauth2.version}</version>
+        </dependency>
+        <!--oauth2 end-->
 
         <!-- 生成图形验证码 -->
         <dependency>

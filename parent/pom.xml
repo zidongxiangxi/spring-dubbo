@@ -50,7 +50,7 @@
         <jstl.version>1.2</jstl.version>
         <standard.version>1.1.2</standard.version>
 
-        <aspectj.version>1.7.4</aspectj.version>
+        <aspectj.version>1.8.6</aspectj.version>
         <spring.version>4.0.0.RELEASE</spring.version>
         <spring.data.jpa.version>1.4.1.RELEASE</spring.data.jpa.version>
 
